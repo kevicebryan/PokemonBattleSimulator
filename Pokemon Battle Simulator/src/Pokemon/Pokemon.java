@@ -161,7 +161,6 @@ public class Pokemon {
 	}
 
 	public void inspectPokemon() {
-		// TODO Auto-generated method stub
 		System.out.println("=======================================");
 		System.out.printf("[%d] Name: %s   ", this.pokedexNumber, this.name);
 		System.out.printf("Type: %s\n", this.type);
