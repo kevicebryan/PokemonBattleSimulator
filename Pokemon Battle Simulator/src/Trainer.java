@@ -19,7 +19,7 @@ public class Trainer {
 		System.out.printf("Battling against %s!\n", enemy.getName());
 
 		do {
-			if(enemy.getCurrHp <= 0){
+			if(enemy.getCurrHp() <= 0){
 				enemy.setCurrHp(0);	
 			}
 			if(this.getPokemon().getCurrHp() <= 0){

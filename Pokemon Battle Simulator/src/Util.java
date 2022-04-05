@@ -8,4 +8,10 @@ public class Util {
       e.printStackTrace();
     }
   }
+  
+  public static void tryCls() {
+	  final String ESC = "\033[";
+	  System.out.print(ESC + "2J"); 
+  }
+  
 }

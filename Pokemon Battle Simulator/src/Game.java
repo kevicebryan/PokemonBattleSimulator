@@ -97,7 +97,7 @@ public class Game {
 	}
 
 	public static void welcomeTrainer() {
-		Util.clearConsole();
+//		Util.clearConsole();
 		System.out.print("Hello fellow Pokemon Trainer, what's you name?\n>> ");
 		String name = sc.nextLine();
 		Util.clearConsole();

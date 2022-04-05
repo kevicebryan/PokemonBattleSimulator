@@ -56,11 +56,11 @@ public class Pokemon {
 	
 	public void defence(Move move, double damage) {
 		double totalDefence = this.def * 0.2;
-		if(this.getStrongAgainst().equals(move.getType())) {
+		if(this.getWeakAgainst().equals(move.getType())) {
 			System.out.println("Attack super effective!");
 			totalDefence *= 2;
 		}
-		if(this.getWeakAgainst().equals(move.getType())) {
+		if(this.getStrongAgainst().equals(move.getType())) {
 			System.out.println("Attack is not effective!");
 			totalDefence /= 2;
 		}
