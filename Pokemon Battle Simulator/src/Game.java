@@ -8,7 +8,7 @@ Aggota Kelompok:
 	Kevin Bryan 	2440038490
 	Oliver Chico	
 	Wendy Oei	2440048024	
-	Ryanto 			
+	Ryanto 		2440046965	
 */
 
 public class Game {
@@ -107,6 +107,8 @@ public class Game {
 		trainer = new Trainer(name, starterPokemons.get(choice));
 		System.out.printf("Wow you chose %s, thats a good choice.\n", trainer.getPokemon().getName());
 		System.out.println("Take care of it for me okay, see ya!");
+		System.out.print("Press enter to continue..");
+		sc.nextLine();
 	}
 
 	private static int inputValidChoice(ArrayList<Pokemon> pokemons) {

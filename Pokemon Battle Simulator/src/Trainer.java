@@ -31,6 +31,7 @@ public class Trainer {
 			System.out.printf("Enemy %12s %.2f/%.2f\n", enemy.getName(), enemy.getCurrHp(), enemy.getBaseHp());
 			System.out.println("======================================");
 			Move move = this.chooseAttack();
+			Util.clearConsole();
 			this.pokemon.attack(enemy, move);
 			System.out.print("Press enter to continue..");
 			sc.nextLine();
@@ -52,6 +53,8 @@ public class Trainer {
 					+ "You Lose...");
 
 		}
+		Util.clearConsole();
+		System.out.print("Press enter to continue..");
 		// Reset enemy HP back to full for next battle!
 		enemy.setCurrHp(enemy.getBaseHp());
 		return;
