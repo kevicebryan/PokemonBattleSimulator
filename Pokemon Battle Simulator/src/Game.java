@@ -7,7 +7,7 @@ import Pokemon.*;
 Aggota Kelompok:
 	Kevin Bryan 	2440038490
 	Oliver Chico	
-	Wendy Oei		
+	Wendy Oei	2440048024	
 	Ryanto 			
 */
 
