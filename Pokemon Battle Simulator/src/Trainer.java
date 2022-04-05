@@ -19,6 +19,12 @@ public class Trainer {
 		System.out.printf("Battling against %s!\n", enemy.getName());
 
 		do {
+			if(enemy.getCurrHp <= 0){
+				enemy.setCurrHp(0);	
+			}
+			if(this.getPokemon().getCurrHp() <= 0){
+				this.getPokemon().setCurrHp(0);
+			}
 			System.out.println("======================================");
 			System.out.printf("Your %12s %.2f/%.2f\n", this.pokemon.getName(), this.pokemon.getCurrHp(),
 					this.pokemon.getBaseHp());
@@ -35,12 +41,7 @@ public class Trainer {
 			System.out.print("Press enter to continue..");
 			sc.nextLine();
 			
-			if(enemy.getCurrHp <= 0){
-				enemy.setCurrHp(0);	
-			}
-			if(this.getPokemon().getCurrHp() <= 0){
-				this.getPokemon().setCurrHp(0);
-			}
+			
 		} while (this.getPokemon().getCurrHp() > 0 && enemy.getCurrHp() > 0);
 
 		if (enemy.getCurrHp() <= 0) {
