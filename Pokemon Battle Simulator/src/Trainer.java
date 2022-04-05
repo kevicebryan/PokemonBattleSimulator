@@ -34,6 +34,13 @@ public class Trainer {
 			enemy.randomAttack(this.pokemon);
 			System.out.print("Press enter to continue..");
 			sc.nextLine();
+			
+			if(enemy.getCurrHp <= 0){
+				enemy.setCurrHp(0);	
+			}
+			if(this.getPokemon().getCurrHp() <= 0){
+				this.getPokemon().setCurrHp(0);
+			}
 		} while (this.getPokemon().getCurrHp() > 0 && enemy.getCurrHp() > 0);
 
 		if (enemy.getCurrHp() <= 0) {
