@@ -78,18 +78,18 @@ public class Game {
 
 	public static void initGame() {
 		// Trainer's available Pokemon
-		PokemonFire charmander = new PokemonFire("Charmander", 250, 40, 60);
-		PokemonWater squirtle = new PokemonWater("Squirtle", 300, 50, 30);
-		PokemonGrass bulbasaur = new PokemonGrass("Bulbasaur", 280, 60, 40);
+		PokemonFire charmander = new PokemonFire("Charmander", 250, 40, 60, 5);
+		PokemonWater squirtle = new PokemonWater("Squirtle", 300, 50, 30, 5);
+		PokemonGrass bulbasaur = new PokemonGrass("Bulbasaur", 280, 60, 40, 5);
 
 		starterPokemons.add(charmander);
 		starterPokemons.add(squirtle);
 		starterPokemons.add(bulbasaur);
 
 		// Enemy Pokemon
-		PokemonFire charizard = new PokemonFire("Charizard", 300, 40, 20);
-		PokemonWater greninja = new PokemonWater("Greninja", 325, 50, 20);
-		PokemonGrass oddish = new PokemonGrass("Oddish", 150, 60, 20);
+		PokemonFire charizard = new PokemonFire("Charizard", 300, 40, 20, 10);
+		PokemonWater greninja = new PokemonWater("Greninja", 325, 50, 20, 8);
+		PokemonGrass oddish = new PokemonGrass("Oddish", 150, 60, 20, 5);
 
 		enemyPokemons.add(charizard);
 		enemyPokemons.add(greninja);
@@ -98,7 +98,8 @@ public class Game {
 
 	public static void welcomeTrainer() {
 //		Util.clearConsole();
-		System.out.print("Hello fellow Pokemon Trainer, what's you name?\n>> ");
+		printArt();
+		System.out.print("Hello fellow Pokemon Trainer, what's your name?\n>> ");
 		String name = sc.nextLine();
 		Util.clearConsole();
 		System.out.printf("%s is it?\nOkay, which Pokemon do you want?\n", name);
@@ -137,9 +138,18 @@ public class Game {
 		System.out.println("=================================");
 		for (int i = 0; i < pokemons.size(); i++) {
 			Pokemon currPokemon = pokemons.get(i);
-			System.out.printf("%d | %-10s | %-10s\n", i + 1, currPokemon.getName(), currPokemon.getType());
+			System.out.printf("%d | %-10s | %-6s | lvl %-3d\n", i + 1, currPokemon.getName(), currPokemon.getType(), currPokemon.getLevel());
 		}
 		System.out.println("=================================");
+	}
+	
+	public static void printArt() {
+		System.out.println("===== = === ====  =====");
+		System.out.println("=   = = =   =   = =");
+		System.out.println("===== ==    ====  =====");
+		System.out.println("=     = =   =   =     =");
+		System.out.println("=     = === ====  =====");
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>");
 	}
 
 }

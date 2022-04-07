@@ -27,7 +27,20 @@ public class Pokemon {
 		this.currHp = hp;
 		this.def = def;
 		this.att = att;
-		this.level = this.exp = 0;
+		this.level = this.exp = 1;
+	}
+	
+// overload constructor Pokemon w/ specific level
+	public Pokemon(String name, double hp, double def, double att, int level) {
+		pokedexCounter++;
+		this.pokedexNumber = pokedexCounter;
+		this.name = name;
+		this.baseHp = hp;
+		this.currHp = hp;
+		this.def = def;
+		this.att = att;
+		this.level = level;
+		this.exp = 0;
 	}
 
 	public void addMove(Move move) {
@@ -83,6 +96,7 @@ public class Pokemon {
 		return;
 	}
 
+//	For enemy Pokemon
 	public void randomAttack(Pokemon enemy) {
 		int choice = (int) (Math.random() * 3);
 		this.attack(enemy, this.getMoves().get(choice));
@@ -99,12 +113,14 @@ public class Pokemon {
 			totalDefence /= 2;
 		}
 		damage -= totalDefence;
+		if(damage <= 0) {
+			damage = 0;
+		}
 		this.setCurrHp(this.getCurrHp() - damage);
 		return;
 	}
 
 	// Setter Getter
-
 	public static int getPokedexCounter() {
 		return pokedexCounter;
 	}
@@ -197,6 +213,7 @@ public class Pokemon {
 		System.out.println("=======================================");
 		System.out.printf("[%d] Name: %s   ", this.pokedexNumber, this.name);
 		System.out.printf("Type: %s\n", this.type);
+		System.out.printf("Level: %d [%d/%d]\n", this.level, this.exp, this.getNextLevelExp());
 		System.out.printf("HP: %.2f/%.2f   ", this.currHp, this.baseHp);
 		System.out.printf("ATT: %.2f   ", this.getAtt());
 		System.out.printf("DEF: %.2f\n", this.def);
@@ -211,6 +228,11 @@ public class Pokemon {
 			System.out.printf("Move[%d]", i + 1);
 			moves.get(i).printMove();
 		}
+	}
+
+	public int getLevel() {
+		// TODO Auto-generated method stub
+		return this.level;
 	}
 
 }
