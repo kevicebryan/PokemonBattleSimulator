@@ -4,7 +4,6 @@ public class PokemonWater extends Pokemon {
 
 	public PokemonWater(String name, double hp, double def, double att) {
 		super(name, hp, def, att);
-		// TODO Auto-generated constructor stub
 		this.type = "water";
 		this.weakAgainst = "grass";
 		this.strongAgainst = "fire";
@@ -17,7 +16,6 @@ public class PokemonWater extends Pokemon {
 	
 	public PokemonWater(String name, double hp, double def, double att, int level) {
 		super(name, hp, def, att, level);
-		// TODO Auto-generated constructor stub
 		this.type = "water";
 		this.weakAgainst = "grass";
 		this.strongAgainst = "fire";

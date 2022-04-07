@@ -35,8 +35,11 @@ public class Trainer {
 			this.pokemon.attack(enemy, move);
 			System.out.print("Press enter to continue..");
 			sc.nextLine();
-			Util.clearConsole();
 
+			if(!(this.getPokemon().getCurrHp() > 0 && enemy.getCurrHp() > 0))
+				break;
+			
+			Util.clearConsole();
 			System.out.println("Enemy's turn!");
 			enemy.randomAttack(this.pokemon);
 			System.out.print("Press enter to continue..");
@@ -45,16 +48,19 @@ public class Trainer {
 			
 		} while (this.getPokemon().getCurrHp() > 0 && enemy.getCurrHp() > 0);
 
+		Util.clearConsole();
+
 		if (enemy.getCurrHp() <= 0) {
 			System.out.println(enemy.getName() + " fainted...\n"
 					+ "You Win!");
+			pokemon.gainExp(enemy.getPokemonWorth());
 		} else {
 			System.out.println(this.pokemon.getName() + " fainted...\n"
 					+ "You Lose...");
-
+			this.pokemon.setCurrHp(0);
 		}
-		Util.clearConsole();
 		System.out.print("Press enter to continue..");
+		sc.nextLine();
 		// Reset enemy HP back to full for next battle!
 		enemy.setCurrHp(enemy.getBaseHp());
 		return;

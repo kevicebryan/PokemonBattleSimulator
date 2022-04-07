@@ -6,7 +6,7 @@ import Pokemon.*;
 /*
 Aggota Kelompok:
 	Kevin Bryan 	2440038490
-	Oliver Chico	
+	Oliver Chico	2440055635
 	Wendy Oei	2440048024	
 	Ryanto 		2440046965	
 */
@@ -70,26 +70,33 @@ public class Game {
 	}
 
 	private static void battleMenu() {
+		if(trainer.getPokemon().getCurrHp() <= 0) {
+			System.out.println("Your pokemon don't have enough hp to start battling!");
+			sc.nextLine();
+			return;
+		}
+
 		printPokemonList(enemyPokemons);
 		int choice = inputValidChoice(enemyPokemons) - 1;
 		Util.clearConsole();
 		trainer.battlePokemon(enemyPokemons.get(choice));
+		
 	}
 
 	public static void initGame() {
 		// Trainer's available Pokemon
-		PokemonFire charmander = new PokemonFire("Charmander", 250, 40, 60, 5);
-		PokemonWater squirtle = new PokemonWater("Squirtle", 300, 50, 30, 5);
-		PokemonGrass bulbasaur = new PokemonGrass("Bulbasaur", 280, 60, 40, 5);
+		PokemonFire charmander = new PokemonFire("Charmander", 250, 40, 60, 3);
+		PokemonWater squirtle = new PokemonWater("Squirtle", 300, 50, 30, 3);
+		PokemonGrass bulbasaur = new PokemonGrass("Bulbasaur", 280, 60, 40, 3);
 
 		starterPokemons.add(charmander);
 		starterPokemons.add(squirtle);
 		starterPokemons.add(bulbasaur);
 
 		// Enemy Pokemon
-		PokemonFire charizard = new PokemonFire("Charizard", 300, 40, 20, 10);
-		PokemonWater greninja = new PokemonWater("Greninja", 325, 50, 20, 8);
-		PokemonGrass oddish = new PokemonGrass("Oddish", 150, 60, 20, 5);
+		PokemonFire charizard = new PokemonFire("Charizard", 300, 40, 20, 5);
+		PokemonWater greninja = new PokemonWater("Greninja", 325, 50, 20, 3);
+		PokemonGrass oddish = new PokemonGrass("Oddish", 150, 60, 20, 1);
 
 		enemyPokemons.add(charizard);
 		enemyPokemons.add(greninja);
@@ -134,7 +141,6 @@ public class Game {
 	}
 
 	private static void printPokemonList(ArrayList<Pokemon> pokemons) {
-		// TODO Auto-generated method stub
 		System.out.println("=================================");
 		for (int i = 0; i < pokemons.size(); i++) {
 			Pokemon currPokemon = pokemons.get(i);

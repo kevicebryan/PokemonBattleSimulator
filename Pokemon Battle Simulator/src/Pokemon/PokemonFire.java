@@ -4,7 +4,6 @@ public class PokemonFire extends Pokemon {
 
 	public PokemonFire(String name, double hp, double def, double att) {
 		super(name, hp, def, att);
-		// TODO Auto-generated constructor stub
 		this.type = "fire";
 		this.weakAgainst = "water";
 		this.strongAgainst = "fire";
@@ -15,10 +14,8 @@ public class PokemonFire extends Pokemon {
 		this.moves.add(new Move("Flamethrower", "fire", 35.0, 0.7));
 	}
 	
-//	Overload
 	public PokemonFire(String name, double hp, double def, double att, int level) {
 		super(name, hp, def, att, level);
-		// TODO Auto-generated constructor stub
 		this.type = "fire";
 		this.weakAgainst = "water";
 		this.strongAgainst = "fire";

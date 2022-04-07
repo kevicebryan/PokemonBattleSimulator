@@ -41,6 +41,9 @@ public class Pokemon {
 		this.att = att;
 		this.level = level;
 		this.exp = 0;
+		for(int i = 0; i < level; i++) {
+			increaseAttribute();
+		}
 	}
 
 	public void addMove(Move move) {
@@ -68,12 +71,24 @@ public class Pokemon {
 	private void levelUp() {
 		exp = exp - getNextLevelExp();
 		level++;
+		increaseAttribute();
+	}
+
+	private void increaseAttribute() {
+		Random rand = new Random();
+		baseHp += rand.nextInt(50) + 20;
+		baseHp = baseHp > 1000 ? 1000 : baseHp;
+		setCurrHp(getBaseHp());
+		def += rand.nextInt(3) + 2;
+		def = def > 100 ? 100 : def;
+		att += rand.nextInt(3) + 2;
+		att = att > 100 ? 100 : att;
 	}
 
 	// dapetin exp yang bakal didapetin kalo kalahin pokemon
 	public int getPokemonWorth() {
 		Random rand = new Random();
-		return level + rand.nextInt(level * 2);
+		return level + 2 + rand.nextInt((level + 2) * 2);
 	}
 
 	// Attack and Defence
@@ -210,16 +225,13 @@ public class Pokemon {
 	}
 
 	public void inspectPokemon() {
-		System.out.println("=======================================");
-		System.out.printf("[%d] Name: %s   ", this.pokedexNumber, this.name);
-		System.out.printf("Type: %s\n", this.type);
-		System.out.printf("Level: %d [%d/%d]\n", this.level, this.exp, this.getNextLevelExp());
-		System.out.printf("HP: %.2f/%.2f   ", this.currHp, this.baseHp);
-		System.out.printf("ATT: %.2f   ", this.getAtt());
-		System.out.printf("DEF: %.2f\n", this.def);
+		System.out.printf("================[ %02d ]=================\n", pokedexNumber);
+		System.out.printf("%-23s %-12s\n", String.format("Name: %s", name), String.format("Type: %s", type));
+		System.out.printf("%-23s %-12s %-12s\n", String.format("HP: %.2f/%.2f", currHp, baseHp), String.format("ATT: %.2f", att), String.format("DEF: %.2f", def));
+		System.out.printf("%-23s %-12s\n", String.format("Level: %d", level), String.format("EXP: %d/%d", exp, getNextLevelExp()));
 		System.out.println("--------------  Move List  -----------");
-		this.printMoves();
-		System.out.println("======================================");
+		printMoves();
+		System.out.println("========================================");
 
 	}
 
