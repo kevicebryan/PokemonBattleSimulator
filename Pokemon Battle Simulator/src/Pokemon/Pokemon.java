@@ -3,7 +3,7 @@ package Pokemon;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Pokemon {
+public abstract class Pokemon {
 	protected final static int BASE_MAX_EXP = 10;
 	protected static int pokedexCounter = 0;
 	protected int pokedexNumber;
@@ -220,9 +220,8 @@ public class Pokemon {
 		return moves;
 	}
 
-	public void setMoves(ArrayList<Move> moves) {
-		this.moves = moves;
-	}
+	public abstract void setMoves();
+
 
 	public void inspectPokemon() {
 		System.out.printf("================[ %02d ]=================\n", pokedexNumber);

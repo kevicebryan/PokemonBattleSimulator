@@ -8,10 +8,7 @@ public class PokemonGrass extends Pokemon {
 		this.weakAgainst = "fire";
 		this.strongAgainst = "water";
 		
-		this.moves.add(new Move("Leaf Blade", "grass", 25.0, 0.75));
-		this.moves.add(new Move("Scratch", "normal", 5.0, 1.0));
-		this.moves.add(new Move("Taunt", "normal", 0.0, 1.0));
-		this.moves.add(new Move("Solar Beam", "grass", 125.0, 0.33));
+		setMoves();
 	}
 	
 	public PokemonGrass(String name, double hp, double def, double att, int level) {
@@ -20,9 +17,14 @@ public class PokemonGrass extends Pokemon {
 		this.weakAgainst = "fire";
 		this.strongAgainst = "water";
 		
-		this.moves.add(new Move("Leaf Blade", "grass", 25.0, 0.75));
-		this.moves.add(new Move("Scratch", "normal", 5.0, 1.0));
-		this.moves.add(new Move("Taunt", "normal", 0.0, 1.0));
-		this.moves.add(new Move("Solar Beam", "grass", 125.0, 0.33));
+		setMoves();
+	}
+
+	@Override
+	public void setMoves() {
+		addMove(new Move("Leaf Blade", "grass", 25.0, 0.75));
+		addMove(new Move("Scratch", "normal", 5.0, 1.0));
+		addMove(new Move("Taunt", "normal", 0.0, 1.0));
+		addMove(new Move("Solar Beam", "grass", 125.0, 0.33));
 	}
 }
